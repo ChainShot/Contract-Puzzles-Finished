@@ -1,7 +1,7 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.7.0;
 
-contract Game3 {
+contract Game1 {
   bool public isWon;
   bool public unlocked;
 

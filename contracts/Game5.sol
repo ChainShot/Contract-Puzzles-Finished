@@ -1,7 +1,7 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.7.0;
 
-contract Game2 {
+contract Game5 {
   bool public isWon;
 
   mapping(address => mapping(address => bool)) nested;

@@ -1,8 +1,8 @@
 const { assert } = require("chai");
 
-describe("Game3", function() {
+describe("Game1", function() {
   it("should be a winner", async function() {
-    const Game = await ethers.getContractFactory("Game3");
+    const Game = await ethers.getContractFactory("Game1");
     const game = await Game.deploy();
     await game.deployed();
 
