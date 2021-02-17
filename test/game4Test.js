@@ -6,18 +6,11 @@ describe("Game4", function() {
     const game = await Game.deploy();
     await game.deployed();
 
-    let wallet = ethers.Wallet.createRandom();
-    while(wallet.address.slice(0,4) !== "0x00") {
-      wallet = ethers.Wallet.createRandom();
-    }
+    const account1 = ethers.provider.getSigner(0);
+    const account2 = ethers.provider.getSigner(1);
 
-    const signer = ethers.provider.getSigner(0);
-    await signer.sendTransaction({
-      to: wallet.address,
-      value: ethers.utils.parseEther("1")
-    });
-
-    await game.connect(wallet.connect(ethers.provider)).win();
+    await game.write(await account2.getAddress());
+    await game.connect(account2).win(await account1.getAddress());
 
     assert(await game.isWon(), "You did not win the game");
   });
